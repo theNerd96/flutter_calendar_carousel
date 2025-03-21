@@ -69,7 +69,29 @@ class CalendarHeader extends StatelessWidget {
                     if (isTitleTouchable)
                       _headerTouchable()
                     else
-                      Text(headerTitle, style: getTextStyle),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 12),
+                        margin: const EdgeInsets.only(bottom: 10),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Color(0xFF032A52)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(18),
+                          ),
+                          color: Color(0xFF032A52).withAlpha(20),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.calendar_today_outlined,
+                              color: Color(0xFF032A52),
+                              size: 14,
+                            ),
+                            const SizedBox(width: 5),
+                            Text(headerTitle, style: getTextStyle)
+                          ],
+                        ),
+                      ),
                     if (showHeaderButtons) _rightButton() else Container(),
                   ])),
         )
